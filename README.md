@@ -89,4 +89,4 @@ handleSend = () => {
   - 其二：`queues` 里的弹幕交给宿主来安排执行（因为宿主是触发弹幕的执行者，自然知道何时处理该弹幕较为何时；比如：我的场景，弹幕列表是从一个分页接口读出来的，当页执行完再去请求下一页的数据，在请求下一页数据的这个空档时间可以检查下 `queues` 是否有东西，有则执行没有就算了）
   - 其三：直接丢弃 `queues` 里的弹幕
 
-- 另外一点需要注意的：我在项目里从接口里读出来数据每页20条，每隔 1s 去发一条弹幕（用 setTimeout），这时有个问题，当页面休眠休眠时，会出现setTimeout堆积的情况，解决办法：用 [requestAnimation](https://zhuanlan.zhihu.com/p/34868095)替代 setTimeout
+- 另外一点需要注意的：我在项目里从接口里读出来数据每页20条，每隔 1s 去发一条弹幕（用 setTimeout），这时有个问题，当页面休眠休眠时，会出现setTimeout堆积的情况，解决办法：用 [requestAnimationFrame](https://zhuanlan.zhihu.com/p/34868095)替代 setTimeout
