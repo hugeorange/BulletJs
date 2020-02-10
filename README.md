@@ -1,7 +1,6 @@
 # danmujs
 > 😀一个原生js弹幕库，基于 CSS3 Animation
-- [地址](https://github.com/hugeorange/danmujs)
-- [核心代码](https://github.com/hugeorange/danmujs/src/comps/index.js)
+- [地址](https://github.com/hugeorange/danmujs)、[核心代码](https://github.com/hugeorange/danmujs/blob/master/src/comps/src/Danmu.js)
 - 本项目基于 [rc-bullets](https://github.com/zerosoul/rc-bullets)，项目约百分之七十的代码基于`rc-bullets`，首先要感谢这个项目的作者，如需学习请深入阅读 `rc-bullets`
 
 - 项目产生原因：
@@ -39,7 +38,7 @@
 
 
 ## 使用
-- [示例代码](https://github.com/hugeorange/danmujs/src/app.jsx)
+- [示例代码](https://github.com/hugeorange/danmujs/blob/master/src/App.jsx)
 ```
 ...
 const screen = new Danmujs('#screen', {
@@ -66,7 +65,7 @@ handleSend = () => {
     }
     ```
 - 说注意事项之前先说一下该项目的弹幕防重叠原理
-- ![原理图](../danmujs/src/image/screen.png)
+- ![原理图](https://raw.githubusercontent.com/hugeorange/danmujs/master/src/image/screen.png)
   ```
   每条轨道三种状态：idle/feed/running 分别如上图所示
 
