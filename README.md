@@ -39,6 +39,7 @@
 
 ## 使用
 - [示例代码](https://github.com/hugeorange/danmujs/blob/master/src/App.jsx)
+- 使用方式：直接将 `./src/comps/src` copy 到你的项目内即可使用
 ```
 ...
 const screen = new Danmujs('#screen', {
