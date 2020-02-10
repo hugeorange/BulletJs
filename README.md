@@ -1,10 +1,10 @@
 # danmujs
 > 😀一个原生js弹幕库，基于 CSS3 Animation
 - [地址](https://github.com/hugeorange/danmujs)、[核心代码](https://github.com/hugeorange/danmujs/blob/master/src/comps/src/Danmu.js)
-- 本项目基于 [rc-bullets](https://github.com/zerosoul/rc-bullets)，项目约百分之七十的代码基于`rc-bullets`，首先要感谢这个项目的作者，如需学习请深入阅读 `rc-bullets`
+- 本项目基于 [rc-bullets](https://github.com/zerosoul/rc-bullets)，项目约70%的代码基于`rc-bullets`，首先要感谢这个项目的作者，如需学习请深入阅读 `rc-bullets`
 
 - 项目产生原因：
-  - 因为`rc-bullets` 是基于 React，可能很多使用其他框架的同学没法使用
+  - 因为`rc-bullets` 是基于 `React`，可能很多使用其他框架的同学没法使用
   - 另一个原因对弹幕重叠检测有一些不同的看法
   - 新增了 `speed` 参数，让所有弹幕以相同速度运动（自己项目的需要）
   - 对 `queues` 队列的处理方式不同
