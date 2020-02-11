@@ -1,6 +1,6 @@
 # danmujs
 > 😀一个原生js弹幕库，基于 CSS3 Animation
-- [地址](https://github.com/hugeorange/danmujs)、[核心代码](https://github.com/hugeorange/danmujs/blob/master/src/comps/src/Danmu.js)
+- [项目地址](https://github.com/hugeorange/danmujs) - [核心代码](https://github.com/hugeorange/danmujs/blob/master/src/comps/src/Danmu.js)
 - 本项目基于 [rc-bullets](https://github.com/zerosoul/rc-bullets)，项目约70%的代码基于`rc-bullets`，首先要感谢这个项目的作者，如需学习请深入阅读 `rc-bullets`
 
 - 项目产生原因：
@@ -37,22 +37,22 @@
 ## 使用
 - [示例代码](https://github.com/hugeorange/danmujs/blob/master/src/App.jsx)
 - 使用方式：直接将 `./src/comps/src` copy 到你的项目内即可使用
-```js
+    ```js
 
-const screen = new Danmujs('#screen', {
-    trackHeight: 35,
-    speed: 80,
-    pauseOnClick: true,
-})
-console.log(screen.queues) // 缓冲队列里的内容
+    const screen = new Danmujs('#screen', {
+        trackHeight: 35,
+        speed: 80,
+        pauseOnClick: true,
+    })
+    console.log(screen.queues) // 缓冲队列里的内容
 
-// 发送弹幕
-handleSend = () => {
-    const danmu = `<div style="border: 1px solid; padding: 5px;">我是一条弹幕哈哈哈😝</div>`
-    screen.push(danmu)
-}
+    // 发送弹幕
+    handleSend = () => {
+        const danmu = `<div style="border: 1px solid; padding: 5px;">我是一条弹幕哈哈哈😝</div>`
+        screen.push(danmu)
+    }
 
-```
+    ```
 
 ## 注意事项
 - 弹幕原理：利用 `css3 animation 关键帧动画`, 从左移动到右，`duration` 控制速度
