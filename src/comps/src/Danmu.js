@@ -135,11 +135,12 @@ export default class Danmujs {
       if (!len) {
         this.tracks[currIdletrack] = 'idle'
       } else {
-        const ele = this.bullets[currIdletrack][len-1]
-        const obj = ele.getBoundingClientRect();
-        if (obj.left + obj.width < this.targetW) {
-          this.tracks[currIdletrack] = 'feed';
-        }
+        // 似乎不需要了 IntersectionObserver 的情况可以覆盖此场景
+        // const ele = this.bullets[currIdletrack][len-1]
+        // const obj = ele.getBoundingClientRect();
+        // if (obj.left + obj.width < this.targetW) {
+        //   this.tracks[currIdletrack] = 'feed';
+        // }
       }
       bulletContainer.remove();
     });
