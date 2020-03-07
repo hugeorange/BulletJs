@@ -1,6 +1,6 @@
 # danmujs
 > 😀一个原生js弹幕库，基于 CSS3 Animation
-- [项目地址](https://github.com/hugeorange/danmujs) - [核心代码](https://github.com/hugeorange/danmujs/blob/master/src/comps/src/Danmu.js)
+- [segmentFault文章地址](https://segmentfault.com/a/1190000021719074) - [项目地址](https://github.com/hugeorange/danmujs) - [核心代码](https://github.com/hugeorange/danmujs/blob/master/src/comps/src/Danmu.js)
 - 本项目基于 [rc-bullets](https://github.com/zerosoul/rc-bullets)，项目约70%的代码基于`rc-bullets`，首先要感谢这个项目的作者，如需学习请深入阅读 `rc-bullets`
 
 - 项目产生原因：
