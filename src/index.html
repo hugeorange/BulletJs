@@ -2,15 +2,72 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>弹幕测试</title>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>弹幕测试</title>
+	<style>
+		.danmu-content {
+			margin-top: 30px;
+			width: 100%;
+			height: 300px;
+			border: 1px solid;
+		}
+
+		.opeate button {
+			margin: 10px;
+			border: 1px solid;
+		}
+		.screen {
+			width: 100vw;
+			height: 100%;
+		}
+	</style>
 </head>
 
 <body>
-  <div id="root"></div>
+	<div id="root">
+		<div class="app">
+			<h1>弹幕开发</h1>
+			<div class="danmu-content">
+				<div class="screen"></div>
+				<div class="opeate">
+					<button onClick={this.handleSend}>手动发送1</button>
+					<button onClick={this.handleSend2}>手动发送2</button>
+				</div>
+				<div class="opeate">
+					<button onClick={this.pause}>暂停全部</button>
+					<button onClick={this.continue}>继续全部</button>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
+<script src="../dist/danmujs.min.js"></script>
+<script>
+	const danmuTest = {
+		screen: null,
+		init() {
+			this.screen = new danmujs('.screen', {
+				trackHeight: 35,
+				speed: 80,
+				pauseOnClick: true,
+			});
+			this.sendDanmu();
+		},
+		sendDanmu() {
+			this.sendAction();
+		},
+		sendAction () {
+			setInterval(() => {
+				const dom = `<span style="margin: 5px;border: 1px solid;overflow: hidden;display: inline-block;word-break: keep-all; white-space: nowrap;">你好科比布莱恩特</span>`
+				this.screen.push(dom)
+			}, 500);
+		}
+	}
+
+	danmuTest.init()
+</script>
 
 </html>
