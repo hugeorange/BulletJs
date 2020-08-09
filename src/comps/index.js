@@ -1,3 +1,2 @@
-import Danmujs from './danmu.js';
-
+import Danmujs from './core.js';
 export default Danmujs;

@@ -6,7 +6,8 @@
   "module": "dist/danmujs.esm.js",
   "unpkg": "dist/danmujs.min.js",
   "scripts": {
-    "dev": "npm run clean && rollup -c",
+    "dev": "npm run clean && rollup -w -c",
+    "build": "npm run clean && NODE_ENV=production rollup -c",
     "clean": "rm -rf dist"
   },
   "author": "YAOLEI",
