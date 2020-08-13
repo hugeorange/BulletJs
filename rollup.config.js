@@ -23,13 +23,14 @@ const prodPlugin = [
 ]
 
 const plugin = isDev ? devPlugin : prodPlugin
+const sourcemap = isDev ? true : false
 
 export default {
     input: 'src/comps/index.js',
     output: [
-        { name: "Danmujs", file: pkg.main, format: 'cjs', sourcemap: isDev ? true : false, },
-        { name: "Danmujs", file: pkg.module, format: 'es', sourcemap: isDev ? true : false, },
-        { name: "Danmujs", file: pkg.unpkg, format: 'umd', sourcemap: isDev ? true : false, }
+        { name: "BulletJs", file: pkg.main, format: 'cjs', sourcemap },
+        { name: "BulletJs", file: pkg.module, format: 'es', sourcemap },
+        { name: "BulletJs", file: pkg.unpkg, format: 'umd', sourcemap }
     ],
     plugins: [
         resolve(), // 引用commonjs模块时需要

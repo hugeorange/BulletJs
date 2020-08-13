@@ -2,9 +2,9 @@
   "name": "danmujs",
   "version": "1.0.0",
   "description": "一个原生js的弹幕库",
-  "main": "dist/danmujs.cjs.js",
-  "module": "dist/danmujs.esm.js",
-  "unpkg": "dist/danmujs.min.js",
+  "main": "dist/BulletJs.cjs.js",
+  "module": "dist/BulletJs.esm.js",
+  "unpkg": "dist/BulletJs.min.js",
   "scripts": {
     "dev": "npm run clean && rollup -w -c",
     "build": "npm run clean && NODE_ENV=production rollup -c",

@@ -40,40 +40,61 @@
 <body>
 	<div id="root">
 		<div class="app">
-			<h1>弹幕开发</h1>
 			<div class="danmu-content">
 				<div class="screen"></div>
 				<div class="opeate">
-					<button onClick={this.handleSend}>手动发送1</button>
-					<button onClick={this.handleSend2}>手动发送2</button>
-				</div>
-				<div class="opeate">
-					<button onClick={this.pause}>暂停全部</button>
-					<button onClick={this.continue}>继续全部</button>
+					<button id="pauseAll">暂停全部</button>
+					<button id="continueAll">继续全部</button>
 				</div>
 				<div class="opeate">
 					<button class="close-time">暂停计时器</button>
 					<button class="open-time" >继续计时器</button>
 				</div>
+				<div class="opeate">
+					<input id="d-input" type="text" placeholder="手动发送的弹幕">
+					<button id="sendDanmu" >发送弹幕</button>
+				</div>
 			</div>
 		</div>
 	</div>
 </body>
-<script src="danmujs.min.js"></script>
+<script src="../dist/BulletJs.min.js"></script>
 <script>
+	const danmuList = [
+		"你好科比布莱恩特",
+		"这个老哥的评论说的很对啊，这都能被违规隐藏？是戳痛到某些人了吗。",
+		"rip....",
+		"resepct",
+		"来自虎扑的穆里尼奥",
+		"来自虎扑的泰伦卢",
+		"勒布朗*詹姆斯",
+		"emoji",
+		"湖人阵容也不是特别豪华为什么能打到西部第一？ 由  高田大叔 发表在虎扑篮球·湿乎乎的话题 https://bbs.hupu.com/vote",
+		"huhuhhahahha",
+		"----huhuh---hahahha---",
+	]
+
+	const getRandom = (min, max) => parseInt(Math.random() * (max - min + 1)) + min
+
 	const danmuTest = {
 		screen: null,
 		handler: null,
 		dom: {
 			closeTime: document.querySelector('.close-time'),
 			openTime: document.querySelector('.open-time'),
+			sendDanmu: document.querySelector('#sendDanmu'),
+			dInput: document.querySelector('#d-input'),
+			pauseAll: document.querySelector('#pauseAll'),
+			continueAll: document.querySelector('#continueAll'),
 		},
 		init() {
 			this.eventInit();
-			this.screen = new Danmujs('.screen', {
+			this.screen = new BulletJs('.screen', {
 				trackHeight: 35,
-				speed: 80,
+				speed: null,
 				pauseOnClick: true,
+				pauseOnHover: false,
+				duration: '10s'
 			});
 			this.sendDanmu();
 		},
@@ -82,8 +103,9 @@
 		},
 		sendAction () {
 			this.handler = setInterval(() => {
-				const dom = `<span class="danmu-item">你好科比布莱恩特</span>`
-				console.log('push --->执行')
+				const index = getRandom(0, 10);
+				const str = danmuList[index];
+				const dom = `<span class="danmu-item">${str}</span>`
 				this.screen.push(dom)
 			}, 500);
 		},
@@ -96,7 +118,6 @@
 			this.screen.resume()
 		},
 		closeTime() {
-			console.log('closeTime--->')
 			this.handler && clearInterval(this.handler)
 		},
 		eventInit() {
@@ -106,6 +127,32 @@
 			})
 			this.dom.openTime.addEventListener('click', () => {
 				this.sendDanmu()
+			})
+
+			this.dom.sendDanmu.addEventListener('click', () => {
+				console.log(this.dom.dInput.value)
+				const value = this.dom.dInput.value;
+				if (value) {
+					const danmu = `<span class="danmu-item" style="color: red;">${value}</span>`
+					this.screen.push(danmu, {
+						onStart: (id, danmu) => {
+							console.log('实例的方法onStart----->', 'id------->', id, 'danmu-------->', danmu)
+						},
+						onEnd: (id, danmu) => {
+							console.log('实例的方法onEnd----->', 'id------->', id, 'danmu-------->', danmu)
+						}
+					}, true)
+				} else {
+					alert("请输入要发送的弹幕")
+				}
+			})
+		
+			this.dom.pauseAll.addEventListener('click', () => {
+				this.pause();
+			})
+
+			this.dom.continueAll.addEventListener('click', () => {
+				this.continue();
 			})
 		}
 	}
