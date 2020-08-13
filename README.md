@@ -1,16 +1,25 @@
-# danmujs
-> 更新采用rollup打包并发布到npm，[rollup打包教程](https://chenshenhai.github.io/rollupjs-note/note/chapter03/01.html)
----
+# BulletJs
 > 😀一个原生js弹幕库，基于 CSS3 Animation
 - [segmentFault文章地址](https://segmentfault.com/a/1190000021719074) 
-- [项目地址](https://github.com/hugeorange/danmujs) 
-- [核心代码](https://github.com/hugeorange/danmujs/blob/master/src/comps/src/Danmu.js)
-- 本项目基于 [rc-bullets](https://github.com/zerosoul/rc-bullets)，项目约70%的代码基于`rc-bullets`，首先要感谢这个项目的作者，如需学习请深入阅读 `rc-bullets`
+- [项目地址](https://github.com/hugeorange/BulletJs) 
+- [核心代码](https://github.com/hugeorange/BulletJs/blob/master/src/comps/core.js)
+- 本项目灵感来源于 [rc-bullets](https://github.com/zerosoul/rc-bullets)
+
+> 2020-08-13更新
+- 采用rollup打包并发布到npm，[rollup打包教程](https://chenshenhai.github.io/rollupjs-note/note/chapter03/01.html)
+- 去除靠`IntersectionObserver`来对弹道进行调度，采用新的弹道选择算法，增加防重叠检测
+- 支持同速/不同速弹幕
+- 变更名字，想想用拼音起名还是太low了😂😂😂
+- 使用方式
+```
+
+```
+---
+---
 
 - 项目产生原因：
   - 因为`rc-bullets` 是基于 `React`，可能很多使用其他框架的同学没法使用
   - 新增了 `speed` 参数，让所有弹幕以相同速度运动（自己项目的需要）
-  - 弹幕存储器`bullets`的数据结构由数组变为对象
   - 在`animationEnd`的时候增加了轨道置空处理
   - 对 `queues` 队列的处理方式不同
   - 弹幕格式 `dom 字符串`
@@ -27,13 +36,8 @@
 | onEnd          | 自定义动画结束函数 | function      | null        | 弹幕运动结束回调 |
 | pauseOnClick   | 鼠标点击暂停       | boolean       | false       | 再次点击继续        |
 | pauseOnHover   | 鼠标悬停暂停       | boolean       | true        | 鼠标进入暂停，离开继续    |
-| loopCount      | 循环次数           | number/string | 1           | animation-loop |
-| duration       | 滚动时长           | number/string | 10          | `传入speed该参数无效`|
+| duration       | 滚动时长           | string        | 10s          | `传入speed该参数无效`|
 | speed          | 滚动速度           | number        | 100          | 100px/s | null    |
-| isCustomeQueue | 是否需要自动消费queues | boolean    | false        |见下面注意事项 |
-| delay          | 延迟               | number/string | 0           | animation-delay |
-| direction      | 动画方向           | string        | normal      | animation-direction |
-| animateTimeFun | 动画函数           | string        | linear:匀速 | animation-timing-function |
 
 
 - 暂停弹幕：`screen.pause([<bulletId>])`，无参则暂停全部
@@ -41,11 +45,11 @@
 
 
 ## 使用
-- [示例代码](https://github.com/hugeorange/danmujs/blob/master/src/App.jsx)
+- [示例代码](https://github.com/hugeorange/BulletJs/blob/master/src/index.html)
 - 使用方式：直接将 `./src/comps/src` copy 到你的项目内即可使用
     ```js
 
-    const screen = new Danmujs('#screen', {
+    const screen = new BulletJs('#screen', {
         trackHeight: 35,
         speed: 80,
         pauseOnClick: true,
