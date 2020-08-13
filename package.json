@@ -1,5 +1,5 @@
 {
-  "name": "danmujs",
+  "name": "bulletjs",
   "version": "1.0.0",
   "description": "一个原生js的弹幕库",
   "main": "dist/BulletJs.cjs.js",
@@ -25,6 +25,10 @@
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-serve": "^1.0.3",
-    "rollup-plugin-terser": "^6.1.0"
+    "rollup-plugin-terser": "^6.1.0",
+    "rollup-plugin-uglify": "^6.0.4"
+  },
+  "dependencies": {
+    "rollup-plugin-livereload": "^1.3.0"
   }
 }

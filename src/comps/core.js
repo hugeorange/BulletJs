@@ -291,11 +291,12 @@ export default class BulletJs {
 
 	// 暂停
 	pause(el = null) {
-		this._toggleAnimateStatus(id, 'paused');
+		this._toggleAnimateStatus(el, 'paused');
 	}
 	// 重新开始
-	resume(id = null) {
-		this._toggleAnimateStatus(id, 'running');
+	resume(el = null) {
+
+		this._toggleAnimateStatus(el, 'running');
 	}
 }
 

@@ -58,7 +58,8 @@
 		</div>
 	</div>
 </body>
-<script src="../dist/BulletJs.min.js"></script>
+<!-- <script src="../dist/BulletJs.min.js"></script> -->
+<script src="BulletJs.min.js"></script>
 <script>
 	const danmuList = [
 		"你好科比布莱恩特",
@@ -121,7 +122,6 @@
 			this.handler && clearInterval(this.handler)
 		},
 		eventInit() {
-			console.log(this.dom.closeTime)
 			this.dom.closeTime.addEventListener('click', () => {
 				this.closeTime()
 			})
@@ -130,7 +130,6 @@
 			})
 
 			this.dom.sendDanmu.addEventListener('click', () => {
-				console.log(this.dom.dInput.value)
 				const value = this.dom.dInput.value;
 				if (value) {
 					const danmu = `<span class="danmu-item" style="color: red;">${value}</span>`

@@ -1,5 +1,6 @@
 import resolve from 'rollup-plugin-node-resolve';
 import serve from "rollup-plugin-serve";
+import livereload from 'rollup-plugin-livereload'; 
 import commonjs from "rollup-plugin-commonjs";
 import babel from "rollup-plugin-babel";
 import { terser } from "rollup-plugin-terser";
@@ -15,7 +16,8 @@ const devPlugin = [
         open: true,
         openPage: '/',
         contentBase: ['dist', 'src']
-    })
+    }),
+    livereload()
 ]
 
 const prodPlugin = [
@@ -34,11 +36,11 @@ export default {
     ],
     plugins: [
         resolve(), // 引用commonjs模块时需要
-        commonjs(), // 引用commonjs模块时需要
         babel({
             exclude: 'node_modules/**', // 防止打包node_modules下的文件
             runtimeHelpers: true,       // 使plugin-transform-runtime生效
         }),
+        commonjs(), // 引用commonjs模块时需要
         ...plugin
     ]
 }
