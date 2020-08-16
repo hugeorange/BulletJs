@@ -1,9 +1,11 @@
 import resolve from 'rollup-plugin-node-resolve';
 import serve from "rollup-plugin-serve";
-import livereload from 'rollup-plugin-livereload'; 
+// import livereload from 'rollup-plugin-livereload'; 
 import commonjs from "rollup-plugin-commonjs";
 import babel from "rollup-plugin-babel";
 import { terser } from "rollup-plugin-terser";
+import htmlTemplate from 'rollup-plugin-generate-html-template';
+
 
 import pkg from './package.json';
 
@@ -17,6 +19,13 @@ const devPlugin = [
         openPage: '/',
         contentBase: ['dist', 'src']
     }),
+    htmlTemplate({
+        template: 'src/index.html',
+        target: 'index.html',
+        replaceVars: {
+            '__STYLE_URL__': `BulletJs.esm.js`
+        }
+    })
     // livereload()
 ]
 
