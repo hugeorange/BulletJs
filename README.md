@@ -3,7 +3,7 @@
 - [segmentFault文章地址](https://segmentfault.com/a/1190000021719074) 
 - [项目地址](https://github.com/hugeorange/BulletJs) 
 - 本项目灵感来源于 [rc-bullets](https://github.com/zerosoul/rc-bullets)
-- 演示图 ![](https://pic4.zhimg.com/50/v2-4260e60fc7c3fbb3dc56f7bc6154fe0a_b.gif)
+- 演示图 ![danmuku.gif](https://pic2.zhimg.com/80/v2-bc6041f8b0e696767fac56fc48c91206_1440w.gif)
 > 2020-08-13更新
 - 采用rollup打包并发布到npm，[rollup打包教程](https://chenshenhai.github.io/rollupjs-note/note/chapter03/01.html)
 - 去除靠`IntersectionObserver`来对弹道进行调度，采用新的弹道选择算法，增加防重叠检测
