@@ -31,5 +31,11 @@
     "rollup-plugin-serve": "^1.0.3",
     "rollup-plugin-terser": "^6.1.0",
     "rollup-plugin-uglify": "^6.0.4"
-  }
+  },
+    "homepage": "https://github.com/hugeorange/BulletJs",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/hugeorange/BulletJs.git"
+    },
+    "keywords": ["弹幕", "原生js弹幕", "bullet", "barrage"]
 }
