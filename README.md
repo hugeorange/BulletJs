@@ -14,32 +14,31 @@
 ### 使用方式
 
 1. 直接cdn引入
-  ```
-  // 示例代码: https://github.com/hugeorange/BulletJs/blob/master/src/index.html
-  <script src="https://unpkg.com/js-bullets@0.0.1/dist/BulletJs.min.js"></script>
-  <script>
-  const screen = new BulletJs('.screen', { 
-                    trackHeight: 35 
-                  });
-  </script>
-  ```
+    ```
+    // 示例代码: https://github.com/hugeorange/BulletJs/blob/master/src/index.html
+    <script src="https://unpkg.com/js-bullets@0.0.1/dist/BulletJs.min.js"></script>
+    <script>
+    const screen = new BulletJs('.screen', { 
+                      trackHeight: 35 
+                    });
+    </script>
+    ```
 2. ESModule 引入
-  ```
-  yarn install js-bullets
+    ```
+    yarn install js-bullets
 
-  // react
-  import BulletJs from "js-bullets";
+    // react
+    import BulletJs from "js-bullets";
 
-  componentDidMount() {
-      this.screen = new BulletJs("#danmu-screen", {})
+    componentDidMount() {
+        this.screen = new BulletJs("#danmu-screen", {})
 
-      setInterval(() => {
-          this.screen.push('<span>12222222</span>')
-      }, 1000)
-  }
+        setInterval(() => {
+            this.screen.push('<span>12222222</span>')
+        }, 1000)
+    }
+    ```
 
-  ```
-  
 3. 简单粗暴的办法直接拷贝`comps`目录下的代码到你的项目中使用，vue、react项目均可
 
 ---
