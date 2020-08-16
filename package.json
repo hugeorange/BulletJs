@@ -1,6 +1,6 @@
 {
   "name": "js-bullets",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "一个原生js的弹幕库",
   "main": "dist/BulletJs.cjs.js",
   "module": "dist/BulletJs.esm.js",
