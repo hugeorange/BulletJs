@@ -17,7 +17,7 @@ const devPlugin = [
         openPage: '/',
         contentBase: ['dist', 'src']
     }),
-    livereload()
+    // livereload()
 ]
 
 const prodPlugin = [

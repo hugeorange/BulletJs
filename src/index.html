@@ -59,7 +59,8 @@
 	</div>
 </body>
 <!-- <script src="../dist/BulletJs.min.js"></script> -->
-<script src="BulletJs.min.js"></script>
+<script src="https://unpkg.com/js-bullets@0.0.3/dist/BulletJs.min.js"></script>
+ <!-- <script src="BulletJs.min.js"></script> -->
 <script>
 	const danmuList = [
 		"你好科比布莱恩特",
@@ -92,10 +93,10 @@
 			this.eventInit();
 			this.screen = new BulletJs('.screen', {
 				trackHeight: 35,
-				speed: null,
+				// speed: 80,
 				pauseOnClick: true,
 				pauseOnHover: false,
-				duration: '10s'
+				// duration: '10s'
 			});
 			this.sendDanmu();
 		},
