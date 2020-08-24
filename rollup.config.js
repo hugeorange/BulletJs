@@ -38,7 +38,7 @@ const plugin = isDev ? devPlugin : prodPlugin
 const sourcemap = isDev ? true : false
 
 export default {
-    input: 'src/comps/index.ts',
+    input: 'src/comps/core.ts',
     output: [
         { name: "BulletJs", file: pkg.main, format: 'cjs', sourcemap },
         { name: "BulletJs", file: pkg.module, format: 'es', sourcemap },
@@ -53,7 +53,7 @@ export default {
         commonjs(), // 引用commonjs模块时需要
         typescript({
             exclude: "node_modules/**",
-            typescript: require('typescript')
+            declarationDir: process.cwd()
         }),
         ...plugin
     ]

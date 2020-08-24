@@ -1,10 +1,11 @@
 {
   "name": "js-bullets",
-  "version": "0.0.6",
+  "version": "1.0.0",
   "description": "一个原生js的弹幕库",
   "main": "dist/BulletJs.cjs.js",
   "module": "dist/BulletJs.esm.js",
   "unpkg": "dist/BulletJs.min.js",
+  "types": "dist/core.d.ts",
   "scripts": {
     "dev": "npm run clean && rollup -w -c",
     "build": "npm run clean && NODE_ENV=production rollup -c",
@@ -12,7 +13,7 @@
     "pub": "npm run build && npm publish"
   },
   "author": "YAOLEI",
-  "license": "ISC",
+  "license": "MIT",
   "files": [
     "dist",
     "src"
@@ -47,5 +48,8 @@
     "原生js弹幕",
     "bullet",
     "barrage"
-  ]
+  ],
+  "dependencies": {
+    "js-bullets": "^0.0.10"
+  }
 }
