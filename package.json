@@ -1,6 +1,6 @@
 {
   "name": "js-bullets",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "一个原生js的弹幕库",
   "main": "dist/BulletJs.cjs.js",
   "module": "dist/BulletJs.esm.js",
@@ -21,6 +21,7 @@
     "@babel/core": "^7.11.1",
     "@babel/plugin-transform-runtime": "^7.11.0",
     "@babel/preset-env": "^7.11.0",
+    "@microsoft/api-extractor": "^7.9.10",
     "core-js": "^3.6.5",
     "rollup": "^2.23.1",
     "rollup-plugin-babel": "^4.4.0",
@@ -30,12 +31,21 @@
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-serve": "^1.0.3",
     "rollup-plugin-terser": "^6.1.0",
-    "rollup-plugin-uglify": "^6.0.4"
+    "rollup-plugin-typescript": "^1.0.1",
+    "rollup-plugin-typescript2": "^0.27.2",
+    "rollup-plugin-uglify": "^6.0.4",
+    "tslib": "^2.0.1",
+    "typescript": "^4.0.2"
   },
-    "homepage": "https://github.com/hugeorange/BulletJs",
-    "repository": {
-      "type": "git",
-      "url": "https://github.com/hugeorange/BulletJs.git"
-    },
-    "keywords": ["弹幕", "原生js弹幕", "bullet", "barrage"]
+  "homepage": "https://github.com/hugeorange/BulletJs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hugeorange/BulletJs.git"
+  },
+  "keywords": [
+    "弹幕",
+    "原生js弹幕",
+    "bullet",
+    "barrage"
+  ]
 }

@@ -3,7 +3,7 @@
  * 插入样式
  * @param {*} width 
  */
-export const initBulletAnimate = (width) => {
+export const initBulletAnimate = (width: number): void => {
 	let style = document.createElement('style');
 	const animateClass = 'BULLET_ANIMATE';
 	style.classList.add(animateClass);
@@ -39,7 +39,19 @@ export const initBulletAnimate = (width) => {
  * 获取弹幕item
  * @param {*} opts 
  */
-export const getContainer = opts => {
+
+export interface optsType {
+	trackHeight?: number;
+	pauseOnHover?: boolean;
+	pauseOnClick?: boolean;
+	onStart?: Function | null;
+	onEnd?: Function | null;
+	duration?: string;
+	speed?: number;
+} 
+
+
+export const getContainer = (opts: optsType): HTMLElement => {
 	const { duration } = opts;
 	// 创建单条弹幕的容器
 	const bulletContainer = document.createElement('div');
@@ -57,7 +69,7 @@ export const getContainer = opts => {
  * @param {*} min 
  * @param {*} max 
  */
-export const getRandom = (min, max) => parseInt(Math.random() * (max - min + 1)) + min;
+export const getRandom = (min: number, max: number): number => parseInt(Math.random() * (max - min + 1) as any) + min;
 
 
 /**

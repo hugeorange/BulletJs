@@ -5,6 +5,7 @@ import commonjs from "rollup-plugin-commonjs";
 import babel from "rollup-plugin-babel";
 import { terser } from "rollup-plugin-terser";
 import htmlTemplate from 'rollup-plugin-generate-html-template';
+import typescript from "rollup-plugin-typescript2";
 
 
 import pkg from './package.json';
@@ -37,7 +38,7 @@ const plugin = isDev ? devPlugin : prodPlugin
 const sourcemap = isDev ? true : false
 
 export default {
-    input: 'src/comps/index.js',
+    input: 'src/comps/index.ts',
     output: [
         { name: "BulletJs", file: pkg.main, format: 'cjs', sourcemap },
         { name: "BulletJs", file: pkg.module, format: 'es', sourcemap },
@@ -50,6 +51,10 @@ export default {
             runtimeHelpers: true,       // 使plugin-transform-runtime生效
         }),
         commonjs(), // 引用commonjs模块时需要
+        typescript({
+            exclude: "node_modules/**",
+            typescript: require('typescript')
+        }),
         ...plugin
     ]
 }
