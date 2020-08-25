@@ -15,8 +15,7 @@
   "author": "YAOLEI",
   "license": "MIT",
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "devDependencies": {
     "@babel/core": "^7.11.1",
