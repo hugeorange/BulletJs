@@ -17,7 +17,7 @@
 1. 直接cdn引入
     ```
     // 示例代码: https://github.com/hugeorange/BulletJs/blob/master/src/index.html
-    <script src="https://unpkg.com/js-bullets@0.0.1/dist/BulletJs.min.js"></script>
+    <script src="https://unpkg.com/js-bullets@latest/dist/BulletJs.min.js"></script>
     <script>
     const screen = new BulletJs('.screen', { 
                       trackHeight: 35 
