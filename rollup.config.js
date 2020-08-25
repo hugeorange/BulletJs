@@ -12,30 +12,28 @@ import pkg from './package.json';
 
 const isDev = process.env.NODE_ENV !== 'production';
 
+const sourcemap = isDev ? true : false;
 
-const devPlugin = [
-    serve({
-        port: 3000,
-        open: true,
-        openPage: '/',
-        contentBase: ['dist', 'src']
-    }),
-    htmlTemplate({
-        template: 'src/index.html',
-        target: 'index.html',
-        replaceVars: {
-            '__STYLE_URL__': `BulletJs.esm.js`
-        }
-    })
-    // livereload()
-]
-
-const prodPlugin = [
-    terser()
-]
-
-const plugin = isDev ? devPlugin : prodPlugin
-const sourcemap = isDev ? true : false
+let plugins = [];
+if (isDev) {
+    plugins = [
+        serve({
+            port: 3000,
+            open: true,
+            openPage: '/',
+            contentBase: ['dist', 'src']
+        }),
+        htmlTemplate({
+            template: 'src/index.html',
+            target: 'index.html',
+            replaceVars: {
+                '__STYLE_URL__': `BulletJs.esm.js`
+            }
+        })
+    ]
+} else {
+    plugins = [ terser() ]
+}
 
 export default {
     input: 'src/comps/core.ts',
@@ -55,6 +53,6 @@ export default {
             exclude: "node_modules/**",
             declarationDir: process.cwd()
         }),
-        ...plugin
+        ...plugins
     ]
 }
