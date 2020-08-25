@@ -26,7 +26,7 @@
     ```
 2. ESModule 引入
     ```
-    yarn install js-bullets
+    yarn add js-bullets
 
     // react
     import BulletJs from "js-bullets";
