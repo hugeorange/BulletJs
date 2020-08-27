@@ -58,8 +58,7 @@
 		</div>
 	</div>
 </body>
-<script src="https://unpkg.com/js-bullets@0.0.3/dist/BulletJs.min.js"></script>
-<script src="../dist/BulletJs.min.js"></script>
+<!-- <script src="https://unpkg.com/js-bullets@0.0.3/dist/BulletJs.min.js"></script> -->
 <script>
 	const danmuList = [
 		"你好科比布莱恩特",
@@ -107,7 +106,7 @@
 			this.handler = setInterval(() => {
 				const index = getRandom(0, 10);
 				const str = danmuList[index];
-				const dom = `<span class="danmu-item">${str}</span>`
+				const dom = `<span>${str}</span>`
 				this.screen.push(dom)
 			}, 500);
 		},

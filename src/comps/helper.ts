@@ -21,8 +21,13 @@ export const initBulletAnimate = (width: number): void => {
 		animation-name: RightToLeft;
 		animation-timing-function: linear;
 		will-change: transform;
+		overflow: hidden;
+		display: inline-block;
+		word-break: keep-all;
+		white-space: nowrap;
 	}
 	`
+
 	const bulletTempContainer = `
 	.bullet-temp-container {
 		position: absolute;

@@ -27,7 +27,7 @@ if (isDev) {
             template: 'src/index.html',
             target: 'index.html',
             replaceVars: {
-                '__STYLE_URL__': `BulletJs.esm.js`
+                '__STYLE_URL__': `BulletJs.min.js`
             }
         })
     ]
