@@ -25,10 +25,7 @@ if (isDev) {
         }),
         htmlTemplate({
             template: 'src/index.html',
-            target: 'index.html',
-            replaceVars: {
-                '__STYLE_URL__': `BulletJs.min.js`
-            }
+            target: 'index.html'
         })
     ]
 } else {
