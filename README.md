@@ -64,7 +64,7 @@
 | pauseOnClick   | 鼠标点击暂停       | boolean       | false       | 再次点击继续        |
 | pauseOnHover   | 鼠标悬停暂停       | boolean       | true        | 鼠标进入暂停，离开继续    |
 | duration       | 滚动时长           | string        | 10s          | `传入speed该参数无效`|
-| speed          | 滚动速度           | number        | 100          | `100px/s` | `null` 传入`null` 会根据`duration`参数自动控制速度，弹幕越长速度越快    |
+| speed          | 滚动速度           | number        | 100          | `100px/s` 或 `null` 传入`null` 会根据 `duration`参数自动控制速度，弹幕越长速度越快    |
 
 
 - 暂停弹幕：`screen.pause([<bulletId>])`，无参则暂停全部
