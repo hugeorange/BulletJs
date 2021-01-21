@@ -24,6 +24,7 @@ export default class BulletJs {
 	queues: any = []; // 用户自己发送的的弹幕存储列表
 	targetW: number = 0; // 舞台宽度
 	pauseArrs: any[] = []; // 暂停队列
+	isAllPaused: boolean = false; // 是否全部暂停
 	constructor(ele: string | HTMLElement , opts: optsType = {}) {
 		this.options = Object.assign(defaultOptions, opts);
 		this.ele = ele;
@@ -73,6 +74,7 @@ export default class BulletJs {
 
 	// push 可针对具体一条弹幕设置特殊配置
 	public push(item: string, opts = {}, isSelf=false): number | string {
+		if (this.isAllPaused) return; // 如果是全部暂停状态，停止push，停止render
 		const options = Object.assign({}, this.options, opts);
 
 		const bulletContainer = getContainer({ ...options });
@@ -247,6 +249,7 @@ export default class BulletJs {
 		 * container：弹幕容器
 		 * track：跑道索引
 		 */
+		if (this.isAllPaused) return; // 如果是全部暂停状态，停止push，停止render
 		container.dataset.track = track + '';
 		container.style.top = track * this.options.trackHeight + 'px';
 		this.target.appendChild(container);
@@ -294,10 +297,14 @@ export default class BulletJs {
 	// 暂停
 	public pause(el = null) {
 		this._toggleAnimateStatus(el, 'paused');
+		if (el === null) {
+			this.isAllPaused = true;
+		}
+		console.log('暂停全部===》12333')
 	}
 	// 重新开始
 	public resume(el = null) {
-
 		this._toggleAnimateStatus(el, 'running');
+		this.isAllPaused = false;
 	}
 }
