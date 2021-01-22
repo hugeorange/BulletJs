@@ -4,12 +4,16 @@
 - [项目地址](https://github.com/hugeorange/BulletJs) 
 - 本项目灵感来源于 [rc-bullets](https://github.com/zerosoul/rc-bullets)
 - 演示图 ![danmuku.gif](https://pic2.zhimg.com/80/v2-bc6041f8b0e696767fac56fc48c91206_1440w.gif)
+### 更新日志
+> 2021-01-22更新
+- 全局增加`isAllPaused`标志，当全部暂停后不会再有push或是render，`resume` 之后即可恢复
+- 问题：`切记：不可覆盖内部样式类 bullet-item-style `否则可能会出现弹幕重叠问题
 > 2020-08-24更新
 - 源码采用ts书写，增加 `.d.ts` 文件
 - 采用rollup打包并发布到npm，[rollup打包教程](https://chenshenhai.github.io/rollupjs-note/note/chapter03/01.html)
 - 去除靠`IntersectionObserver`来对弹道进行调度，采用新的弹道选择算法，增加防重叠检测
 - 支持同速/不同速弹幕
-- 默认情况下直接丢弃排不上对的弹幕，不对其进行缓存，对于必定要上墙的弹幕在push时可以增加一个参数 `this.screen.push(danmu, {}, true)`(适用于用户自己发的弹幕)
+- 默认情况下直接丢弃排不上对的弹幕，不对其进行缓存，对于必定要上墙的弹幕在push时可以增加一个参数 `this.screen.push(danmu, {}, true)`(适用于用户自己发的弹幕，需要将第三个参数传为`true`)
 - 变更名字，想想用拼音起名还是太low了😂😂😂
   
 ### 使用方式

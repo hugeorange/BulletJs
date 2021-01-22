@@ -300,7 +300,6 @@ export default class BulletJs {
 		if (el === null) {
 			this.isAllPaused = true;
 		}
-		console.log('暂停全部===》12333')
 	}
 	// 重新开始
 	public resume(el = null) {
