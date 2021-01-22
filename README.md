@@ -3,11 +3,13 @@
 - [segmentFault文章地址](https://segmentfault.com/a/1190000021719074) 
 - [项目地址](https://github.com/hugeorange/BulletJs) 
 - 本项目灵感来源于 [rc-bullets](https://github.com/zerosoul/rc-bullets)
+- [演示页面](https://hugeorange.github.io/gh-pages/bullets/index) `https://hugeorange.github.io/gh-pages/bullets/index`
 - 演示图 ![danmuku.gif](https://pic2.zhimg.com/80/v2-bc6041f8b0e696767fac56fc48c91206_1440w.gif)
 ### 更新日志
 > 2021-01-22更新
 - 全局增加`isAllPaused`标志，当全部暂停后不会再有push或是render，`resume` 之后即可恢复
 - 问题：`切记：不可覆盖内部样式类 bullet-item-style `否则可能会出现弹幕重叠问题
+- 增加演示页面
 > 2020-08-24更新
 - 源码采用ts书写，增加 `.d.ts` 文件
 - 采用rollup打包并发布到npm，[rollup打包教程](https://chenshenhai.github.io/rollupjs-note/note/chapter03/01.html)
