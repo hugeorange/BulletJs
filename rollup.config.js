@@ -16,6 +16,7 @@ const sourcemap = isDev ? true : false;
 
 let plugins = [];
 if (isDev) {
+    // 或者不用这种方式进行测试，直接在index.html 用相对路劲引入dist内打包后的文件
     plugins = [
         serve({
             port: 3000,
@@ -53,3 +54,13 @@ export default {
         ...plugins
     ]
 }
+
+/**
+   如果需要exteral的时候可以用 rollup-plugin-peer-deps-external这个插件将依赖排除
+     external: [
+        ...(pkg.dependencies == null ? [] : Object.keys(pkg.dependencies)),
+        ...(pkg.devDependencies == null ? [] : Object.keys(pkg.devDependencies)),
+     ]
+     
+  rollup-plugin-delete 类似webpack的cleanWebpackPlugin
+*/
