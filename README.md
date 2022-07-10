@@ -25,9 +25,7 @@
     ```js
     <script src="https://unpkg.com/js-bullets@latest/dist/BulletJs.min.js"></script>
     <script>
-    const screen = new BulletJs('.screen', { 
-                      trackHeight: 35 
-                    });
+    	const screen = new BulletJs('.screen', {});
     </script>
     ```
 2. ESModule 引入
@@ -38,10 +36,9 @@
     import BulletJs from "js-bullets";
 
     componentDidMount() {
-        this.screen = new BulletJs("#danmu-screen", {})
-
+        const screen = new BulletJs("#danmu-screen", {})
         setInterval(() => {
-            this.screen.push('<span>12222222</span>')
+            screen.push('<span>12222222</span>')
         }, 1000)
     }
     ```
