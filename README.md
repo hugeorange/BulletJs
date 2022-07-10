@@ -1,4 +1,4 @@
-# BulletJs  😀一个原生 js 弹幕库，基于 CSS3 Animation
+## BulletJs  😀一个原生 js 弹幕库，基于 CSS3 Animation
 - [segmentFault文章地址](https://segmentfault.com/a/1190000021719074) 
 - [演示页面](https://stackblitz.com/edit/web-platform-qw1tud?file=index.html)
 - ![danmuku.gif](https://pic2.zhimg.com/80/v2-bc6041f8b0e696767fac56fc48c91206_1440w.gif)
