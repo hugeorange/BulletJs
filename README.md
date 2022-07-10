@@ -1,24 +1,23 @@
-# BulletJs
-> 😀一个原生 js 弹幕库，基于 CSS3 Animation
+# BulletJs  😀一个原生 js 弹幕库，基于 CSS3 Animation
 - [segmentFault文章地址](https://segmentfault.com/a/1190000021719074) 
 - [演示页面](https://stackblitz.com/edit/web-platform-qw1tud?file=index.html)
 - ![danmuku.gif](https://pic2.zhimg.com/80/v2-bc6041f8b0e696767fac56fc48c91206_1440w.gif)
 ### 更新日志
-> 2022-07-10
-- 文档及源码中增加 xss 风险的提示
-- 支持对[不同轨道设置不同速度](https://github.com/hugeorange/BulletJs/issues/13)
-- 使用 prittier 对代码进行格式化
-> 2021-01-22更新
-- 全局增加`isAllPaused`标志，当全部暂停后不会再有push或是 render ，`resume` 之后即可恢复
-- 问题：`切记：不可覆盖内部样式类 __bullet-item-style `否则可能会出现弹幕重叠问题
-- 增加演示页面
-> 2020-08-24更新
-- 源码采用ts书写，增加 `.d.ts` 文件
-- 采用rollup打包并发布到npm，[rollup打包教程](https://chenshenhai.github.io/rollupjs-note/note/chapter03/01.html)
-- 去除靠`IntersectionObserver`来对弹道进行调度，采用新的弹道选择算法，增加防重叠检测
-- 支持同速/不同速弹幕
-- 默认情况下直接丢弃排不上对的弹幕，不对其进行缓存，对于必定要上墙的弹幕在push时可以增加一个参数 `this.screen.push(danmu, {}, true)` (适用于用户自己发的弹幕，需要将第三个参数传为`true`)
-- 变更名字，想想用拼音起名还是太 low 了😂😂😂😂
+- 2022-07-10
+	- 文档及源码中增加 xss 风险的提示
+	- 支持对[不同轨道设置不同速度](https://github.com/hugeorange/BulletJs/issues/13)
+	- 使用 prittier 对代码进行格式化
+- 2021-01-22更新
+	- 全局增加`isAllPaused`标志，当全部暂停后不会再有push或是 render ，`resume` 之后即可恢复
+	- 问题：`切记：不可覆盖内部样式类 __bullet-item-style `否则可能会出现弹幕重叠问题
+	- 增加演示页面
+- 2020-08-24更新
+	- 源码采用ts书写，增加 `.d.ts` 文件
+	- 采用rollup打包并发布到npm，[rollup打包教程](https://chenshenhai.github.io/rollupjs-note/note/chapter03/01.html)
+	- 去除靠`IntersectionObserver`来对弹道进行调度，采用新的弹道选择算法，增加防重叠检测
+	- 支持同速/不同速弹幕
+	- 默认情况下直接丢弃排不上对的弹幕，不对其进行缓存，对于必定要上墙的弹幕在push时可以增加一个参数 `this.screen.push(danmu, {}, true)` (适用于用户自己发的弹幕，需要将第三个参数传为`true`)
+	- 变更名字，想想用拼音起名还是太 low 了😂😂😂😂
   
 ### 使用方式
 
@@ -53,6 +52,7 @@
 
 
 ## Options
+
 | 选项           | 含义   | 值类型 | 默认值 | 备注 |
 | -------------- | -- | ---- | ---- | --- |
 | trackHeight  | 轨道高度           | string  | 50px  | 均分轨道的高度  |
@@ -65,14 +65,14 @@
 | duration    | 滚动时长    | string        | 10s          | `传入speed该参数无效`|
 
 - 建议参数配置如下：
-	```js
-	{
-		trackHeight: 35, // 每条轨道高度
-		speed: 100, // 速度 100px/s 根据实际情况去配置 
-		pauseOnClick: true, // 点击暂停
-		pauseOnHover: true, // hover 暂停
-	}
-	```
+```js
+{
+	trackHeight: 35, // 每条轨道高度
+	speed: 100, // 速度 100px/s 根据实际情况去配置 
+	pauseOnClick: true, // 点击暂停
+	pauseOnHover: true, // hover 暂停
+}
+```
 - 暂停弹幕：`screen.pause([<bulletId>])`，无参则暂停全部
 - 弹幕继续：`screen.resume([<bulletId>])`，无参则继续全部
 
@@ -98,16 +98,14 @@
         to { transform: translateX(-100%) }
     }
     ```
-    - [弹幕防重叠原理](https://www.zhihu.com/question/370464345)
-    - ![原理图](https://github.com/hugeorange/BulletJs/blob/master/src/image/screen.png)
-
-3. 另外一点需要注意的：我在项目里从接口里读出来数据每页20条，每隔 1s 去发一条弹幕（用 setTimeout），这时有个问题，当页面休眠休眠时，会出现setTimeout堆积的情况，解决办法：用 [requestAnimationFrame](https://zhuanlan.zhihu.com/p/34868095)替代 setTimeout
+3. [弹幕防重叠原理](https://www.zhihu.com/question/370464345)
+4. 另外一点需要注意的：我在项目里从接口里读出来数据每页20条，每隔 1s 去发一条弹幕（用 setTimeout），这时有个问题，当页面休眠休眠时，会出现setTimeout堆积的情况，解决办法：用 [requestAnimationFrame](https://zhuanlan.zhihu.com/p/34868095)替代 setTimeout
 
 ## 项目灵感
 - 本项目灵感来源于 [rc-bullets](https://github.com/zerosoul/rc-bullets)，项目产生原因：
-    - 因为`rc-bullets` 是基于 `React`，可能很多使用其他框架的同学没法使用
-    - 新增了 `speed` 参数，让所有弹幕以相同速度运动（自己项目的需要）
-    - 在`animationEnd`的时候增加了轨道置空处理
-    - 对 `queues` 队列的处理方式不同
-    - 弹幕格式 `dom 字符串`，方便使用者自定义弹幕样式
-    - 去掉了一些自己项目用不到的 api
+- `rc-bullets` 是基于 `React`，可能很多使用其他框架的同学没法使用
+- 新增了 `speed` 参数，让所有弹幕以相同速度运动（自己项目的需要）
+- 在`animationEnd`的时候增加了轨道置空处理
+- 对 `queues` 队列的处理方式不同
+- 弹幕格式 `dom 字符串`，方便使用者自定义弹幕样式
+- 去掉了一些自己项目用不到的 api
