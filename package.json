@@ -1,6 +1,6 @@
 {
   "name": "js-bullets",
-  "version": "1.0.6",
+  "version": "1.1.0",
   "description": "一个原生js的弹幕库",
   "main": "dist/BulletJs.cjs.js",
   "module": "dist/BulletJs.esm.js",
@@ -35,7 +35,8 @@
     "rollup-plugin-typescript2": "^0.27.2",
     "rollup-plugin-uglify": "^6.0.4",
     "tslib": "^2.0.1",
-    "typescript": "^4.0.2"
+    "typescript": "^4.0.2",
+    "prettier": "^2.7.1"
   },
   "homepage": "https://github.com/hugeorange/BulletJs",
   "repository": {
@@ -45,10 +46,8 @@
   "keywords": [
     "弹幕",
     "原生js弹幕",
+    "CSS 高性能弹幕",
     "bullet",
     "barrage"
-  ],
-  "dependencies": {
-    "js-bullets": "^0.0.10"
-  }
+  ]
 }

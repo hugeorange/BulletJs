@@ -62,7 +62,7 @@
 		</div>
 	</div>
 </body>
-<!-- <script src="https://unpkg.com/js-bullets@latest/dist/BulletJs.min.js"></script> -->
+<script src="../dist/BulletJs.min.js"></script>
 <script>
 	const danmuList = [
 		"你好科比布莱恩特",
@@ -96,10 +96,9 @@
 			this.eventInit();
 			this.screen = new BulletJs('.screen', {
 				trackHeight: 35,
-				// speed: 1000,
+				speed: undefined,
 				pauseOnClick: true,
-				pauseOnHover: false,
-				// duration: '10s'
+				pauseOnHover: true,
 			});
 			this.sendDanmu();
 		},
@@ -112,7 +111,7 @@
 				const str = danmuList[index];
 				const dom = `<span>${str}</span>`
 				this.screen.push(dom)
-			}, 500);
+			}, 1000);
 		},
 		// 暂停
 		pause() {
@@ -135,14 +134,17 @@
 
 			this.dom.sendDanmu.addEventListener('click', () => {
 				const value = this.dom.dInput.value;
+				// 此处一定要对用户输入进行过滤防止 xss 攻击
+				const escapeHTML = value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\"/g, '&quot;').replace(/\'/g, '&#39;').replace(/\//g, '&#x2F;')
+				console.log('escapeHTML--->', escapeHTML)
 				if (value) {
-					const danmu = `<span class="danmu-item" style="color: red;">${value}</span>`
+					const danmu = `<span class="danmu-item" style="color: red;">${escapeHTML}</span>`
 					this.screen.push(danmu, {
 						onStart: (id, danmu) => {
-							console.log('实例的方法onStart----->', 'id------->', id, 'danmu-------->', danmu)
+							// console.log('实例的方法onStart----->', 'id------->', id, 'danmu-------->', danmu)
 						},
 						onEnd: (id, danmu) => {
-							console.log('实例的方法onEnd----->', 'id------->', id, 'danmu-------->', danmu)
+							// console.log('实例的方法onEnd----->', 'id------->', id, 'danmu-------->', danmu)
 						}
 					}, true)
 				} else {
