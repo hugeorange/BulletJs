@@ -10,6 +10,7 @@
     <script src="https://unpkg.com/js-bullets@latest/dist/BulletJs.min.js"></script>
     <script>
     	const screen = new BulletJs('.screen', {});
+	screen.push('<span>12222222</span>')
     </script>
     ```
 2. ESModule 引入
@@ -30,32 +31,33 @@
 3. 简单粗暴的办法直接拷贝 `comps` 目录下的代码到你的项目中使用，vue、react 项目均可
 
 ---
+- 创建一个弹幕实例： `const screen = new BulletJs(dom selector, Options);`
+- 发送弹幕：        `screen.pause('弹幕内容')`
+- 暂停弹幕：        `screen.pause([<bulletId>])`，无参则暂停全部
+- 弹幕继续：        `screen.resume([<bulletId>])`，无参则继续全部
 
+- Options
 
-## Options
-
-| 选项           | 含义   | 值类型 | 默认值 | 备注 |
-| -------------- | -- | ---- | ---- | --- |
-| trackHeight  | 轨道高度           | string  | 50px  | 均分轨道的高度  |
-| onStart      | 自定义动画开始函数 | function  | null   | 开始开始回调 |
-| onEnd        | 自定义动画结束函数 | function  | null   | 弹幕运动结束回调 |
-| pauseOnClick | 鼠标点击暂停    | boolean   | false    | 再次点击继续        |
-| pauseOnHover | 鼠标悬停暂停  | boolean  | true        | 鼠标进入暂停，离开继续    |
-| speed        | 滚动速度   | number        | 100      | `100px/s` 或 `null` 传入`null` 会根据 `duration`参数自动控制速度，弹幕越长速度越快    |
-| trackArr  | 控制每一轨道的速度 | `{speed:number}[]`   | undefined | 单独控制每一条轨道速度，数组索引对应轨道序号，如当前索引下无值则取 speed 参数的值|
-| duration    | 滚动时长    | string        | 10s          | `传入speed该参数无效`|
+	| 选项           | 含义   | 值类型 | 默认值 | 备注 |
+	| -------------- | -- | ---- | ---- | --- |
+	| trackHeight  | 轨道高度           | string  | 50px  | 均分轨道的高度  |
+	| onStart      | 自定义动画开始函数 | function  | null   | 开始开始回调 |
+	| onEnd        | 自定义动画结束函数 | function  | null   | 弹幕运动结束回调 |
+	| pauseOnClick | 鼠标点击暂停    | boolean   | false    | 再次点击继续        |
+	| pauseOnHover | 鼠标悬停暂停  | boolean  | true        | 鼠标进入暂停，离开继续    |
+	| speed        | 滚动速度   | number        | 100      | `100px/s` 或 `null` 传入`null` 会根据 `duration`参数自动控制速度，弹幕越长速度越快    |
+	| trackArr  | 控制每一轨道的速度 | `{speed:number}[]`   | undefined | 单独控制每一条轨道速度，数组索引对应轨道序号，如当前索引下无值则取 speed 参数的值|
+	| duration    | 滚动时长    | string        | 10s          | `传入speed该参数无效`|
 
 - 建议参数配置如下：
-```js
-{
-	trackHeight: 35, // 每条轨道高度
-	speed: 100, // 速度 100px/s 根据实际情况去配置 
-	pauseOnClick: true, // 点击暂停
-	pauseOnHover: true, // hover 暂停
-}
-```
-- 暂停弹幕：`screen.pause([<bulletId>])`，无参则暂停全部
-- 弹幕继续：`screen.resume([<bulletId>])`，无参则继续全部
+	```js
+	{
+		trackHeight: 35, // 每条轨道高度
+		speed: 100, // 速度 100px/s 根据实际情况去配置 
+		pauseOnClick: true, // 点击暂停
+		pauseOnHover: true, // hover 暂停
+	}
+	```
 
 
 ## **注意事项**
