@@ -114,8 +114,9 @@ export default class BulletJs {
     // 此处有极大风险会出现 xss漏洞，注意切忌一定要对用户输入进行过滤，采用 innerHTML 主要是为了方便开发者可以自定义样式
     // 故开发者一定要对用户输入内容进行转义过滤
     bulletContainer.innerHTML = item
-    // 为了获取当前弹幕的宽度，故必须要将其先插入到document中
-    this.tempContanier.replaceChildren(bulletContainer)
+    // 为了获取当前弹幕的宽度，故必须要将其先插入到document中(为了实现 弹幕防止重叠)
+    this.tempContanier.innerHTML = ''
+    this.tempContanier.appendChild(bulletContainer)
     this.bulletInfo = { width: bulletContainer.offsetWidth }
 
     let duration = 0

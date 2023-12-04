@@ -21,9 +21,9 @@ if (isDev) {
       contentBase: ['dist', 'src'],
     }),
     // htmlTemplate({
-    //     template: 'src/index.html',
-    //     target: 'index.html'
-    // })
+    //   template: 'src/index.html',
+    //   target: 'index.html',
+    // }),
   ]
 } else {
   plugins = [terser()]
