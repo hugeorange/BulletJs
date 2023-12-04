@@ -10,8 +10,8 @@
    ```js
    <script src="https://unpkg.com/js-bullets@latest/dist/BulletJs.min.js"></script>
    <script>
-    // .screen 的 div 必须要有明确的宽高
-   	const screen = new BulletJs('.screen', {});
+   // .screen 的 div 必须要有明确的宽高
+   const screen = new BulletJs('.screen', {});
    screen.push('<span>12222222</span>')
    </script>
    ```
@@ -104,6 +104,8 @@
 
 ### 更新日志
 
+- 2023-12-04
+  - 用 `appendChild`代替`replaceChildren`解决移动端低版本浏览器的兼容问题
 - 2022-07-10
   - 文档及源码中增加 xss 风险的提示
   - 支持对[不同轨道设置不同速度](https://github.com/hugeorange/BulletJs/issues/13)
