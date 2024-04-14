@@ -121,3 +121,12 @@
   - 支持同速/不同速弹幕
   - 默认情况下直接丢弃排不上对的弹幕，不对其进行缓存，对于必定要上墙的弹幕在 push 时可以增加一个参数 `this.screen.push(danmu, {}, true)` (适用于用户自己发的弹幕，需要将第三个参数传为`true`)
   - 变更名字，想想用拼音起名还是太 low 了 😂😂😂😂
+
+
+## Star History
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=hugeorange/BulletJs&type=Date&theme=dark" />
+  <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=hugeorange/BulletJs&type=Date" />
+  <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=hugeorange/BulletJs&type=Date" />
+</picture>
