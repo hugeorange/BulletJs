@@ -21,6 +21,12 @@ const defaultOptions = {
 }
 
 type ItrackStatus = 'running' | 'idle'
+type IBulletInfo = {
+  width: number
+}
+
+// 用户自己发送的弹幕，多增加一个 item(html 字符串) 作为用户 push 的内容
+type IQueue = { item: string; opts: IoptsType }
 
 export default class BulletJs {
   ele: string | HTMLElement
@@ -29,18 +35,21 @@ export default class BulletJs {
 
   target: HTMLElement = null
   tempContanier: HTMLElement = null // 临时弹幕容器
-  bulletInfo: Record<string, any> = {} // 当前push的弹幕对象信息
-  bullets: any[] = [] // 弹幕存储器 ==> 各跑道内所对应的弹幕
+  bulletInfo: IBulletInfo = { width: 0 } // 当前push的弹幕对象信息
+  bullets: HTMLElement[][] = [] // 弹幕存储器 ==> 各跑道内所对应的弹幕
   tracks: ItrackStatus[] = [] // 轨道列表
-  queues: any = [] // 用户自己发送的的弹幕存储列表
+  queues: IQueue[] = [] // 用户自己发送的的弹幕存储列表
   targetW: number = 0 // 舞台宽度
-  pauseArrs: any[] = [] // 暂停队列
+  pauseArrs: HTMLElement[] = [] // 暂停队列
   isAllPaused: boolean = false // 是否全部暂停
   constructor(ele: string | HTMLElement, opts: IoptsType = {}) {
     this.options = Object.assign(defaultOptions, opts)
     this.ele = ele
+    // 初始化舞台
     this.initScreen()
+    // 初始化全局参数
     this.initOpt()
+    // 初始化临时弹幕容器
     this.initTempContainer()
     this._addExtraEvent()
   }
@@ -108,9 +117,9 @@ export default class BulletJs {
       return bulletContainer.id
     }
   }
-  // 获取下一个弹幕实体
+  // 根据参数获取弹幕实体
   private _getBulletItem(item: string, options: IoptsType, canIndex: number) {
-    const bulletContainer = getContainer({ ...options })
+    const bulletContainer = getContainer()
     // 此处有极大风险会出现 xss漏洞，注意切忌一定要对用户输入进行过滤，采用 innerHTML 主要是为了方便开发者可以自定义样式
     // 故开发者一定要对用户输入内容进行转义过滤
     bulletContainer.innerHTML = item
@@ -126,11 +135,11 @@ export default class BulletJs {
     } else {
       duration = +options.duration.slice(0, -1)
     }
-    // 控制速度
-    bulletContainer.style.animationDuration = duration * 1000 + 'ms'
 
     // 将duration作为弹幕固有属性存储
     bulletContainer.dataset.duration = duration + ''
+    // 控制速度
+    bulletContainer.style.animationDuration = duration * 1000 + 'ms'
     // 删除临时存储弹幕容器里的弹幕
     bulletContainer.remove()
     return bulletContainer
@@ -232,6 +241,7 @@ export default class BulletJs {
       if (!this.bullets[canIndex].length) {
         this.tracks[canIndex] = 'idle'
       }
+      bulletContainer.style.willChange = 'auto'
       bulletContainer.remove()
     })
   }
@@ -270,6 +280,7 @@ export default class BulletJs {
     if (this.isAllPaused) return // 如果是全部暂停状态，停止push，停止render
     container.dataset.track = track + ''
     container.style.top = track * this.options.trackHeight + 'px'
+    container.style.willChange = 'transform'
     this.target.appendChild(container)
 
     // 检测 queues
@@ -290,15 +301,15 @@ export default class BulletJs {
     return this.bullets.reduce((acc, cur) => [...cur, ...acc], [])
   }
   // 切换状态
-  private _toggleAnimateStatus = (el, status = 'paused') => {
+  private _toggleAnimateStatus = (el: HTMLElement, status = 'paused') => {
     if (el) {
       if (status === 'running') {
         el.style.animationPlayState = 'running'
-        el.style.zIndex = 0
+        el.style.zIndex = '0'
         el.classList.remove('bullet-item-paused')
       } else {
         el.style.animationPlayState = 'paused'
-        el.style.zIndex = 99999
+        el.style.zIndex = '99999'
         el.classList.add('bullet-item-paused')
       }
       return
@@ -313,14 +324,14 @@ export default class BulletJs {
   }
 
   // 暂停
-  public pause(el = null) {
+  public pause(el: HTMLElement = null) {
     this._toggleAnimateStatus(el, 'paused')
     if (el === null) {
       this.isAllPaused = true
     }
   }
   // 重新开始
-  public resume(el = null) {
+  public resume(el: HTMLElement = null) {
     this._toggleAnimateStatus(el, 'running')
     this.isAllPaused = false
   }

@@ -62,7 +62,8 @@
 		</div>
 	</div>
 </body>
-<script src="/BulletJs.min.js"></script>
+<script src="/BulletJs.esm.js" type="module"></script>
+<!-- <script src="/BulletJs.min.js"></script> -->
 <!-- <script src="../dist/BulletJs.min.js"></script> -->
 <script>
 	const danmuList = [
@@ -80,7 +81,7 @@
 		"😂❤️😍😒👌☺️☺️😊😭😩😩😔😏😁👍🏿😁😏😏😔💕😭😘😊❤️😍"
 	]
 
-	const getRandom = (min, max) => parseInt(Math.random() * (max - min + 1)) + min
+	const getRandom2 = (min, max) => parseInt(Math.random() * (max - min + 1)) + min
 
 	const danmuTest = {
 		screen: null,
@@ -108,7 +109,7 @@
 		},
 		sendAction() {
 			this.handler = setInterval(() => {
-				const index = getRandom(0, 10);
+				const index = getRandom2(0, 10);
 				const str = danmuList[index];
 				const dom = `<span>${str}</span>`
 				this.screen.push(dom)

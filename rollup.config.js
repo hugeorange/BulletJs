@@ -18,19 +18,19 @@ if (isDev) {
     serve({
       port: 3007,
       openPage: '/',
-      contentBase: ['dist', 'src'],
+      contentBase: ['dist'],
     }),
-    // htmlTemplate({
-    //   template: 'src/index.html',
-    //   target: 'index.html',
-    // }),
+    htmlTemplate({
+      template: 'index.html',
+      target: 'index.html',
+    }),
   ]
 } else {
   plugins = [terser()]
 }
 
 export default {
-  input: 'src/comps/core.ts',
+  input: 'src/core.ts',
   output: [
     { name: 'BulletJs', file: pkg.main, format: 'cjs', sourcemap },
     { name: 'BulletJs', file: pkg.module, format: 'es', sourcemap },

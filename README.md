@@ -2,7 +2,7 @@
 
 - [segmentFault 文章地址](https://segmentfault.com/a/1190000021719074)
 - [演示页面](https://stackblitz.com/edit/web-platform-oqereb?file=index.html)
-- ![danmuku.gif](https://pic2.zhimg.com/80/v2-bc6041f8b0e696767fac56fc48c91206_1440w.gif)
+- ![danmuku.gif](/preview.gif)
 
 ### 使用方式
 
@@ -31,7 +31,7 @@
    }
    ```
 
-3. 简单粗暴的办法直接拷贝 `comps` 目录下的代码到你的项目中使用，vue、react 项目均可
+3. 简单粗暴的办法直接拷贝 `src` 目录下的代码到你的项目中使用，vue、react 项目均可
 
 ---
 
@@ -90,7 +90,7 @@
    }
    ```
 3. [弹幕防重叠原理](https://www.zhihu.com/question/370464345)
-4. 另外一点需要注意的：我在项目里从接口里读出来数据每页 20 条，每隔 1s 去发一条弹幕（用 setTimeout），这时有个问题，当页面休眠休眠时，会出现 setTimeout 堆积的情况，解决办法：用 [requestAnimationFrame](https://zhuanlan.zhihu.com/p/34868095)替代 setTimeout
+4. 另外一点需要注意的：我在项目里从接口里读出来数据每页 20 条，每隔 1s 去发一条弹幕（用 setTimeout），这时有个问题，当页面休眠休眠时，会出现 setTimeout 堆积的情况，解决办法：用 [requestAnimationFrame](https://zhuanlan.zhihu.com/p/34868095)替代 setTimeout，代码在 `src/util/raf.js` 里面
 
 ## 项目灵感
 
@@ -121,12 +121,3 @@
   - 支持同速/不同速弹幕
   - 默认情况下直接丢弃排不上对的弹幕，不对其进行缓存，对于必定要上墙的弹幕在 push 时可以增加一个参数 `this.screen.push(danmu, {}, true)` (适用于用户自己发的弹幕，需要将第三个参数传为`true`)
   - 变更名字，想想用拼音起名还是太 low 了 😂😂😂😂
-
-
-## Star History
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=hugeorange/BulletJs&type=Date&theme=dark" />
-  <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=hugeorange/BulletJs&type=Date" />
-  <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=hugeorange/BulletJs&type=Date" />
-</picture>

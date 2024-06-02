@@ -44,14 +44,14 @@ export const initBulletAnimate = (width: number): void => {
  * @param {*} opts
  */
 
-export type TtrackObj = {
+export type ItrackObj = {
   speed: number
   // 后续可能还会增加其他属性，先以对象表示
 }
 
 export interface IoptsType {
   trackHeight?: number
-  trackArr?: TtrackObj[]
+  trackArr?: ItrackObj[]
   pauseOnHover?: boolean
   pauseOnClick?: boolean
   onStart?: Function | null
@@ -60,9 +60,8 @@ export interface IoptsType {
   speed?: number
 }
 
-export const getContainer = (opts: IoptsType): HTMLElement => {
-  const { duration } = opts
-  // 创建单条弹幕的容器
+// 创建单条弹幕的容器
+export const getContainer = (): HTMLElement => {
   const bulletContainer = document.createElement('div')
   bulletContainer.id = Math.random().toString(36).substring(2)
   bulletContainer.classList.add(BULLETCLASS)
@@ -83,19 +82,25 @@ export const getRandom = (min: number, max: number): number =>
  * @param {*} className 需要执行绑定事件的元素的 class
  * @param {*} cb 执行的回调
  */
-export function eventEntrust(target, event, className, cb) {
+export function eventEntrust(
+  target: HTMLElement,
+  event: 'click' | 'mouseover' | 'mouseout' | 'mousemove',
+  className: string,
+  cb: (el: HTMLElement) => void,
+) {
   target.addEventListener(event, e => {
-    var el = e.target
-    //判断当前点击的元素是否为指定的classname，如果不是，执行以下的while循环
+    let el = e.target as HTMLElement
+
+    // 判断当前点击的元素是否为指定的classname，如果不是，执行以下的while循环
     while (!el.className.includes(className)) {
-      //如果点击的元素为target，直接跳出循环（代表未找到目标元素）
+      // 如果点击的元素为target，直接跳出循环（代表未找到目标元素）
       if (el === target) {
         el = null
         break
       }
       //否则，将当前元素父元素赋给el
       // console.log('whild循环中...')
-      el = el.parentNode
+      el = el.parentNode as HTMLElement
     }
     if (el) {
       // console.log('找到目标元素')
