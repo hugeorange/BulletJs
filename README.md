@@ -36,7 +36,7 @@
 ---
 
 - 创建一个弹幕实例： `const screen = new BulletJs(dom selector, Options);`
-- 发送弹幕： `screen.pause('弹幕内容')`
+- 发送弹幕： `screen.push('弹幕内容')`
 - 暂停弹幕： `screen.pause([<bulletId>])`，无参则暂停全部
 - 弹幕继续： `screen.resume([<bulletId>])`，无参则继续全部
 
@@ -119,5 +119,5 @@
   - 采用 rollup 打包并发布到 npm，[rollup 打包教程](https://chenshenhai.github.io/rollupjs-note/note/chapter03/01.html)
   - 去除靠`IntersectionObserver`来对弹道进行调度，采用新的弹道选择算法，增加防重叠检测
   - 支持同速/不同速弹幕
-  - 默认情况下直接丢弃排不上对的弹幕，不对其进行缓存，对于必定要上墙的弹幕在 push 时可以增加一个参数 `this.screen.push(danmu, {}, true)` (适用于用户自己发的弹幕，需要将第三个参数传为`true`)
+  - 默认情况下直接丢弃排不上队的弹幕，不对其进行缓存，对于必定要上墙的弹幕在 push 时可以增加一个参数 `this.screen.push(danmu, {}, true)` (适用于用户自己发的弹幕，需要将第三个参数传为`true`)
   - 变更名字，想想用拼音起名还是太 low 了 😂😂😂😂
