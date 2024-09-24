@@ -24,7 +24,7 @@
     "@microsoft/api-extractor": "^7.9.10",
     "core-js": "^3.6.5",
     "prettier": "^2.7.1",
-    "rollup": "^2.23.1",
+    "rollup": "^3.29.5",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-generate-html-template": "^1.7.0",
